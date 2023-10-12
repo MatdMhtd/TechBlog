@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:tech_app/gen/assets.gen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +34,12 @@ class MyApp extends StatelessWidget {
               fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
         ),
       ),
-      home: const MyHomePage(title: "تست"),
+      home: Scaffold(
+        body: Center(
+          child:
+              Image(image: AssetImage(Assets.lib.assets.images.isfahan.path),alignment: Alignment.center),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
