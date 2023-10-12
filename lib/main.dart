@@ -11,14 +11,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(localizationsDelegates: [
-      GlobalCupertinoLocalizations.delegate,
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-    ], supportedLocales: [
-      Locale("fa", "IR"), // OR Locale('ar', 'AE') OR Other RTL locales
-    ], locale: Locale("fa", "IR") // OR Locale('ar', 'AE') OR Other RTL locales,
-        );
+    return MaterialApp(
+      localizationsDelegates: const [
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale("fa", "IR"),
+      ],
+      locale: const Locale("fa", "IR"),
+      theme: ThemeData(
+        fontFamily: 'dana',
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(
+              fontFamily: 'dana', fontSize: 16, fontWeight: FontWeight.w700),
+          headlineMedium: TextStyle(
+              fontFamily: 'dana', fontSize: 14, fontWeight: FontWeight.w300),
+          bodyMedium: TextStyle(
+              fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
+        ),
+      ),
+      home: const MyHomePage(title: "تست"),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
