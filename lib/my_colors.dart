@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SolidColors {
   static const Color colorTitle = Color.fromARGB(255, 40, 107, 184);
+  static const Color colorPrimary = Color.fromARGB(255, 25, 0, 94);
   static const Color textTitle = Color.fromARGB(255, 0, 0, 0);
   static const Color scafoldBg = Color.fromARGB(255, 255, 255, 255);
   static const Color lightText = Color.fromARGB(255, 255, 255, 255);

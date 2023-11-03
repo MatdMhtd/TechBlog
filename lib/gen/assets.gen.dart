@@ -28,8 +28,12 @@ class $LibAssetsImagesGen {
   AssetGenImage get isfahan =>
       const AssetGenImage('lib/assets/images/isfahan.jpg');
 
+  /// File path: lib/assets/images/splash_screen.png
+  AssetGenImage get splashScreen =>
+      const AssetGenImage('lib/assets/images/splash_screen.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [isfahan];
+  List<AssetGenImage> get values => [isfahan, splashScreen];
 }
 
 class Assets {
