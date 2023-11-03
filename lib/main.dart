@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:tech_app/my_colors.dart';
 import 'package:tech_app/splash_screen.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: SolidColors.statusBarColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: SolidColors.navigatorBarColor,
+      systemNavigationBarIconBrightness: Brightness.dark));
+
   runApp(const MyApp());
 }
 

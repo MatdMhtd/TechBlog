@@ -24,16 +24,19 @@ class $LibAssetsGen {
 class $LibAssetsImagesGen {
   const $LibAssetsImagesGen();
 
-  /// File path: lib/assets/images/isfahan.jpg
-  AssetGenImage get isfahan =>
-      const AssetGenImage('lib/assets/images/isfahan.jpg');
+  /// File path: lib/assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('lib/assets/images/logo.png');
+
+  /// File path: lib/assets/images/posterTest.png
+  AssetGenImage get posterTest =>
+      const AssetGenImage('lib/assets/images/posterTest.png');
 
   /// File path: lib/assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('lib/assets/images/splash_screen.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [isfahan, splashScreen];
+  List<AssetGenImage> get values => [logo, posterTest, splashScreen];
 }
 
 class Assets {
