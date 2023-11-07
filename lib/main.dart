@@ -34,9 +34,15 @@ class MyApp extends StatelessWidget {
         fontFamily: 'dana',
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
-              fontFamily: 'dana', fontSize: 16, fontWeight: FontWeight.w700),
+              fontFamily: 'dana',
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: Colors.white),
           headlineMedium: TextStyle(
-              fontFamily: 'dana', fontSize: 14, fontWeight: FontWeight.w300),
+              fontFamily: 'dana',
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+              color: Color.fromARGB(200, 255, 255, 255)),
           bodyMedium: TextStyle(
               fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
         ),
