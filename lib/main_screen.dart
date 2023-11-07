@@ -8,6 +8,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var themText = Theme.of(context).textTheme;
 
     return SafeArea(
       child: Scaffold(
@@ -47,6 +48,31 @@ class MainScreen extends StatelessWidget {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter)),
                   ),
+                  Positioned(
+                      bottom: 10,
+                      left: 0,
+                      right: 0,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(
+                                "ملیکا عزیزی یک روز پیش",
+                                style: themText.headlineMedium,
+                              ),
+                              Text(
+                                "Likes 256",
+                                style: themText.headlineMedium,
+                              )
+                            ],
+                          ),
+                          Text(
+                            "دوازده قدم برنامه نویسی یک دوره ی...س",
+                            style: themText.headlineLarge,
+                          )
+                        ],
+                      ))
                 ],
               )
             ],
