@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_colors.dart';
@@ -12,7 +11,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var bodMargin = size.width / 11;
+    var bodMargin = size.width / 10;
     var themText = Theme.of(context).textTheme;
 
     return SafeArea(
@@ -83,8 +82,8 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(
-                height: size.height / 22,
+              const SizedBox(
+                height: 20,
               ),
               //list tag
               SizedBox(
@@ -98,12 +97,13 @@ class MainScreen extends StatelessWidget {
                           8, 8, (index == 0 ? bodMargin : 16), 8),
                       child: Container(
                           alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              gradient: const LinearGradient(
+                          decoration: const BoxDecoration(
+                              gradient: LinearGradient(
                                   colors: GradiantColors.tags,
                                   begin: Alignment.centerRight,
                                   end: Alignment.centerLeft),
-                              borderRadius: BorderRadius.circular(14)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(14))),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -150,7 +150,70 @@ class MainScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: size.height / 3.5,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          8, 8, index == 0 ? bodMargin : 8, 8),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: size.height / 5.3,
+                            width: size.width / 2.4,
+                            child: Stack(children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(14)),
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                            listBlogModel[index].ImageUrl),
+                                        fit: BoxFit.cover)),
+                                foregroundDecoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(14)),
+                                    gradient: LinearGradient(
+                                        colors: GradiantColors.blogColor,
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter)),
+                              ),
+                              Positioned(
+                                bottom: 8,
+                                right: 0,
+                                left: 0,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      listBlogModel[index].Writer,
+                                      style: themText.headlineMedium,
+                                    ),
+                                    Text(
+                                      "Likes: ${listBlogModel[index].Likes}",
+                                      style: themText.headlineMedium,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ]),
+                          ),
+                          SizedBox(
+                            width: size.width / 2.4,
+                            child: Text(listBlogModel[index].Content,
+                                maxLines: 2, overflow: TextOverflow.ellipsis),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: listBlogModel.length,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
             ],
           ),
         ),
