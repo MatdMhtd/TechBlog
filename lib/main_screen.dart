@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_colors.dart';
+
+import 'models/fackData.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -19,12 +22,12 @@ class MainScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Icon(Icons.menu),
+                  const Icon(Icons.menu),
                   Image(
                       height: size.height / 13.63,
                       image: AssetImage(
                           Assets.lib.assets.images.splashScreen.path)),
-                  Icon(Icons.search),
+                  const Icon(Icons.search),
                 ],
               ),
               Stack(
@@ -74,7 +77,51 @@ class MainScreen extends StatelessWidget {
                         ],
                       ))
                 ],
-              )
+              ),
+              SizedBox(
+                height: size.height / 22,
+              ),
+              SizedBox(
+                height: size.height / 12,
+                child: ListView.builder(
+                  itemCount: listTag.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding:
+                          EdgeInsets.fromLTRB(8, 8, (index == 0 ? 29 : 16), 8),
+                      child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                  colors: GradiantColors.tags,
+                                  begin: Alignment.centerRight,
+                                  end: Alignment.centerLeft),
+                              borderRadius: BorderRadius.circular(14)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: ImageIcon(
+                                      AssetImage(
+                                          Assets.lib.assets.icons.sharp.path),
+                                      color: Colors.white,
+                                      size: size.height / 41),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(40, 8, 15, 8),
+                                  child: Text(
+                                    listTag[index].title,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                )
+                              ])),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),

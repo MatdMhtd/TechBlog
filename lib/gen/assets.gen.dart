@@ -18,7 +18,18 @@ class $LibGen {
 class $LibAssetsGen {
   const $LibAssetsGen();
 
+  $LibAssetsIconsGen get icons => const $LibAssetsIconsGen();
   $LibAssetsImagesGen get images => const $LibAssetsImagesGen();
+}
+
+class $LibAssetsIconsGen {
+  const $LibAssetsIconsGen();
+
+  /// File path: lib/assets/icons/sharp.png
+  AssetGenImage get sharp => const AssetGenImage('lib/assets/icons/sharp.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [sharp];
 }
 
 class $LibAssetsImagesGen {
