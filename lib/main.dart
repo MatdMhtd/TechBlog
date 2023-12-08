@@ -43,6 +43,11 @@ class MyApp extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w300,
               color: Color.fromARGB(200, 255, 255, 255)),
+          headlineSmall: TextStyle(
+              fontFamily: 'dana',
+              fontSize: 12,
+              fontWeight: FontWeight.w300,
+              color: SolidColors.seeMore),
           bodyMedium: TextStyle(
               fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
         ),

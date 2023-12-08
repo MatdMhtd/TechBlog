@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_colors.dart';
+import 'package:tech_app/my_strings.dart';
 
 import 'models/fackData.dart';
 
@@ -11,6 +12,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var bodMargin = size.width / 11;
     var themText = Theme.of(context).textTheme;
 
     return SafeArea(
@@ -18,7 +20,8 @@ class MainScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
           child: Column(
-            children: [
+            children: <Widget>[
+              //menu
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -30,6 +33,7 @@ class MainScreen extends StatelessWidget {
                   const Icon(Icons.search),
                 ],
               ),
+              //poster
               Stack(
                 children: [
                   Container(
@@ -78,9 +82,11 @@ class MainScreen extends StatelessWidget {
                       ))
                 ],
               ),
+
               SizedBox(
                 height: size.height / 22,
               ),
+              //list tag
               SizedBox(
                 height: size.height / 12,
                 child: ListView.builder(
@@ -88,8 +94,8 @@ class MainScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding:
-                          EdgeInsets.fromLTRB(8, 8, (index == 0 ? 29 : 16), 8),
+                      padding: EdgeInsets.fromLTRB(
+                          8, 8, (index == 0 ? bodMargin : 16), 8),
                       child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
@@ -122,6 +128,29 @@ class MainScreen extends StatelessWidget {
                   },
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+
+              //blog
+              Padding(
+                padding: EdgeInsets.only(right: bodMargin),
+                child: Row(
+                  children: [
+                    ImageIcon(
+                      AssetImage(Assets.lib.assets.icons.bluePen.path),
+                      color: SolidColors.seeMore,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      MyStrings.viewHotestBlog,
+                      style: themText.headlineSmall,
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),

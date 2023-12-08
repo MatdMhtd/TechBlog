@@ -25,11 +25,15 @@ class $LibAssetsGen {
 class $LibAssetsIconsGen {
   const $LibAssetsIconsGen();
 
+  /// File path: lib/assets/icons/bluePen.png
+  AssetGenImage get bluePen =>
+      const AssetGenImage('lib/assets/icons/bluePen.png');
+
   /// File path: lib/assets/icons/sharp.png
   AssetGenImage get sharp => const AssetGenImage('lib/assets/icons/sharp.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [sharp];
+  List<AssetGenImage> get values => [bluePen, sharp];
 }
 
 class $LibAssetsImagesGen {
