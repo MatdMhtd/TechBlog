@@ -29,11 +29,27 @@ class $LibAssetsIconsGen {
   AssetGenImage get bluePen =>
       const AssetGenImage('lib/assets/icons/bluePen.png');
 
+  /// File path: lib/assets/icons/homeIcon.png
+  AssetGenImage get homeIcon =>
+      const AssetGenImage('lib/assets/icons/homeIcon.png');
+
+  /// File path: lib/assets/icons/podCast.png
+  AssetGenImage get podCast =>
+      const AssetGenImage('lib/assets/icons/podCast.png');
+
   /// File path: lib/assets/icons/sharp.png
   AssetGenImage get sharp => const AssetGenImage('lib/assets/icons/sharp.png');
 
+  /// File path: lib/assets/icons/userIcon.png
+  AssetGenImage get userIcon =>
+      const AssetGenImage('lib/assets/icons/userIcon.png');
+
+  /// File path: lib/assets/icons/wIcon.png
+  AssetGenImage get wIcon => const AssetGenImage('lib/assets/icons/wIcon.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [bluePen, sharp];
+  List<AssetGenImage> get values =>
+      [bluePen, homeIcon, podCast, sharp, userIcon, wIcon];
 }
 
 class $LibAssetsImagesGen {
