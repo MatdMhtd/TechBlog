@@ -20,12 +20,12 @@ List<Tags> listTag = [
 ];
 
 class BlogModel {
-  int Id;
-  String Writer;
-  String Likes;
-  String Content;
-  String ImageUrl;
-  BlogModel(this.Id, this.Writer, this.Likes, this.Content, this.ImageUrl);
+  int id;
+  String writer;
+  String likes;
+  String content;
+  String imageUrl;
+  BlogModel(this.id, this.writer, this.likes, this.content, this.imageUrl);
 }
 
 List<BlogModel> listBlogModel = [

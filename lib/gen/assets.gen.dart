@@ -62,12 +62,16 @@ class $LibAssetsImagesGen {
   AssetGenImage get posterTest =>
       const AssetGenImage('lib/assets/images/posterTest.png');
 
+  /// File path: lib/assets/images/profile.png
+  AssetGenImage get profile =>
+      const AssetGenImage('lib/assets/images/profile.png');
+
   /// File path: lib/assets/images/splash_screen.png
   AssetGenImage get splashScreen =>
       const AssetGenImage('lib/assets/images/splash_screen.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo, posterTest, splashScreen];
+  List<AssetGenImage> get values => [logo, posterTest, profile, splashScreen];
 }
 
 class Assets {

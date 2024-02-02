@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_app/gen/assets.gen.dart';
-import 'package:tech_app/models/fackData.dart';
+import 'package:tech_app/models/fack_data.dart';
 import 'package:tech_app/my_colors.dart';
 import 'package:tech_app/my_strings.dart';
 
@@ -163,7 +162,7 @@ class HomeScreen extends StatelessWidget {
                                       Radius.circular(14)),
                                   image: DecorationImage(
                                       image: NetworkImage(
-                                          listBlogModel[index].ImageUrl),
+                                          listBlogModel[index].imageUrl),
                                       fit: BoxFit.cover)),
                               foregroundDecoration: const BoxDecoration(
                                   borderRadius:
@@ -182,11 +181,11 @@ class HomeScreen extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
-                                    listBlogModel[index].Writer,
+                                    listBlogModel[index].writer,
                                     style: themText.headlineMedium,
                                   ),
                                   Text(
-                                    "Likes: ${listBlogModel[index].Likes}",
+                                    "Likes: ${listBlogModel[index].likes}",
                                     style: themText.headlineMedium,
                                   )
                                 ],
@@ -196,7 +195,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           width: size.width / 2.4,
-                          child: Text(listBlogModel[index].Content,
+                          child: Text(listBlogModel[index].content,
                               maxLines: 2, overflow: TextOverflow.ellipsis),
                         )
                       ],
@@ -246,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
-                                        listBlogModel[index].ImageUrl),
+                                        listBlogModel[index].imageUrl),
                                     fit: BoxFit.cover),
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(14)),
@@ -255,7 +254,7 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(
                               height: size.height / 30,
                               child: Text(
-                                listBlogModel[index].Writer,
+                                listBlogModel[index].writer,
                                 style: themText.bodyMedium,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,

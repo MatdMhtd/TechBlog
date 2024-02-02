@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_colors.dart';
-import 'package:tech_app/view/home_screen.dart';
+import 'package:tech_app/view/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -34,7 +33,8 @@ class MainScreen extends StatelessWidget {
           ),
         ),
         body: Stack(children: [
-          HomeScreen(size: size, themText: themText, bodMargin: bodMargin),
+          //HomeScreen(size: size, themText: themText, bodMargin: bodMargin),
+          ProfileScreen(size: size, themText: themText, bodMargin: bodMargin),
 
           //bottomNavigationBar
           BottomNavigationBar(bodMargin: bodMargin, size: size),
