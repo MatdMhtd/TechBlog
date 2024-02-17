@@ -4,7 +4,7 @@ import 'package:tech_app/models/fack_data.dart';
 import 'package:tech_app/my_colors.dart';
 import 'package:tech_app/my_strings.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
     required this.size,
@@ -17,6 +17,11 @@ class HomeScreen extends StatelessWidget {
   final double bodMargin;
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -28,8 +33,8 @@ class HomeScreen extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: size.height / 4.205,
-                  width: size.width / 1.19,
+                  height: widget.size.height / 4.205,
+                  width: widget.size.width / 1.19,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     image: DecorationImage(
@@ -57,17 +62,17 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Text(
                               "ملیکا عزیزی یک روز پیش",
-                              style: themText.headlineMedium,
+                              style: widget.themText.headlineMedium,
                             ),
                             Text(
                               "Likes 256",
-                              style: themText.headlineMedium,
+                              style: widget.themText.headlineMedium,
                             )
                           ],
                         ),
                         Text(
                           "دوازده قدم برنامه نویسی یک دوره ی...س",
-                          style: themText.headlineLarge,
+                          style: widget.themText.headlineLarge,
                         )
                       ],
                     ))
@@ -79,14 +84,14 @@ class HomeScreen extends StatelessWidget {
             ),
             //list tag
             SizedBox(
-              height: size.height / 12,
+              height: widget.size.height / 12,
               child: ListView.builder(
                 itemCount: listTag.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.fromLTRB(
-                        8, 8, (index == 0 ? bodMargin : 16), 8),
+                        8, 8, (index == 0 ? widget.bodMargin : 16), 8),
                     child: Container(
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
@@ -105,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                                     AssetImage(
                                         Assets.lib.assets.icons.sharp.path),
                                     color: Colors.white,
-                                    size: size.height / 41),
+                                    size: widget.size.height / 41),
                               ),
                               Padding(
                                 padding:
@@ -126,7 +131,7 @@ class HomeScreen extends StatelessWidget {
 
             //blog
             Padding(
-              padding: EdgeInsets.only(right: bodMargin),
+              padding: EdgeInsets.only(right: widget.bodMargin),
               child: Row(
                 children: [
                   ImageIcon(
@@ -138,23 +143,23 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Text(
                     MyStrings.viewHotestBlog,
-                    style: themText.headlineSmall,
+                    style: widget.themText.headlineSmall,
                   )
                 ],
               ),
             ),
             SizedBox(
-              height: size.height / 3.5,
+              height: widget.size.height / 3.5,
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.fromLTRB(
-                        8, 8, index == 0 ? bodMargin : 8, 8),
+                        8, 8, index == 0 ? widget.bodMargin : 8, 8),
                     child: Column(
                       children: [
                         SizedBox(
-                          height: size.height / 5.3,
-                          width: size.width / 2.4,
+                          height: widget.size.height / 5.3,
+                          width: widget.size.width / 2.4,
                           child: Stack(children: [
                             Container(
                               decoration: BoxDecoration(
@@ -182,11 +187,11 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     listBlogModel[index].writer,
-                                    style: themText.headlineMedium,
+                                    style: widget.themText.headlineMedium,
                                   ),
                                   Text(
                                     "Likes: ${listBlogModel[index].likes}",
-                                    style: themText.headlineMedium,
+                                    style: widget.themText.headlineMedium,
                                   )
                                 ],
                               ),
@@ -194,7 +199,7 @@ class HomeScreen extends StatelessWidget {
                           ]),
                         ),
                         SizedBox(
-                          width: size.width / 2.4,
+                          width: widget.size.width / 2.4,
                           child: Text(listBlogModel[index].content,
                               maxLines: 2, overflow: TextOverflow.ellipsis),
                         )
@@ -212,23 +217,23 @@ class HomeScreen extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: size.height / 3,
+              height: widget.size.height / 3,
               child: Column(children: [
                 Padding(
-                  padding: EdgeInsets.only(right: bodMargin),
+                  padding: EdgeInsets.only(right: widget.bodMargin),
                   child: Row(
                     children: [
                       ImageIcon(
                           AssetImage(Assets.lib.assets.icons.podCast.path)),
                       Text(
                         MyStrings.viewHotestPodcast,
-                        style: themText.headlineSmall,
+                        style: widget.themText.headlineSmall,
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: size.height / 4.5,
+                  height: widget.size.height / 4.5,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
@@ -236,12 +241,12 @@ class HomeScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: EdgeInsets.only(
-                            right: index == 0 ? bodMargin : 10, top: 10),
+                            right: index == 0 ? widget.bodMargin : 10, top: 10),
                         child: Column(
                           children: [
                             Container(
-                              height: size.height / 8,
-                              width: size.width / 2.4,
+                              height: widget.size.height / 8,
+                              width: widget.size.width / 2.4,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: NetworkImage(
@@ -252,10 +257,10 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: size.height / 30,
+                              height: widget.size.height / 30,
                               child: Text(
                                 listBlogModel[index].writer,
-                                style: themText.bodyMedium,
+                                style: widget.themText.bodyMedium,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                               ),
