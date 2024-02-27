@@ -74,8 +74,12 @@ class $LibAssetsImagesGen {
   AssetGenImage get splashScreen =>
       const AssetGenImage('lib/assets/images/splash_screen.png');
 
+  /// File path: lib/assets/images/techBot.svg
+  String get techBot => 'lib/assets/images/techBot.svg';
+
   /// List of all assets
-  List<AssetGenImage> get values => [logo, posterTest, profile, splashScreen];
+  List<dynamic> get values =>
+      [logo, posterTest, profile, splashScreen, techBot];
 }
 
 class Assets {

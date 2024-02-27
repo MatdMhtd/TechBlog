@@ -3,6 +3,7 @@ import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_colors.dart';
 import 'package:tech_app/view/home_screen.dart';
 import 'package:tech_app/view/profile_screen.dart';
+import 'package:tech_app/view/sign_up.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -20,7 +21,8 @@ class _MainScreenState extends State<MainScreen> {
     var themText = Theme.of(context).textTheme;
     List<Widget> techMainScreen = [
       HomeScreen(size: size, themText: themText, bodMargin: bodMargin), //0
-      ProfileScreen(size: size, themText: themText, bodMargin: bodMargin), //1
+      SignUpScreen(textTheme: themText), //1
+      ProfileScreen(size: size, themText: themText, bodMargin: bodMargin), //2
     ];
 
     return SafeArea(
@@ -115,7 +117,7 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
                     color: Colors.white,
                   )),
               IconButton(
-                  onPressed: (() => widget.changeScreen(1)),
+                  onPressed: (() => widget.changeScreen(2)),
                   icon: ImageIcon(
                     AssetImage(Assets.lib.assets.icons.userIcon.path),
                     color: Colors.white,

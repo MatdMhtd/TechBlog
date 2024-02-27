@@ -8,4 +8,10 @@ class MyStrings {
   static const String myFavArticle = "مقالات مورد علاقه";
   static const String myFavPodcast = "پادکست‌های مورد علاقه";
   static const String signOut = "خروج از حساب کاربری";
+  static const String welcomSignUp = """به تک‌بلاگ خوش آمدید
+  
+  برای ارسال مطلب و پادکست باید حتما
+   ثبت نام کنید""";
+
+  static const String btnSignUp = "بزن بریم";
 }
