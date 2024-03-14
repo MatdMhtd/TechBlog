@@ -31,31 +31,46 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale("fa", "IR"),
       theme: ThemeData(
-        fontFamily: 'dana',
-        textTheme: const TextTheme(
-            headlineLarge: TextStyle(
-                fontFamily: 'dana',
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: Colors.white),
-            headlineMedium: TextStyle(
-                fontFamily: 'dana',
-                fontSize: 14,
-                fontWeight: FontWeight.w300,
-                color: Color.fromARGB(200, 255, 255, 255)),
-            headlineSmall: TextStyle(
-                fontFamily: 'dana',
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
-                color: SolidColors.seeMore),
-            bodyMedium: TextStyle(
-                fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
-            bodyLarge: TextStyle(
-                fontFamily: 'dana',
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: SolidColors.signUpText)),
-      ),
+          fontFamily: 'dana',
+          textTheme: const TextTheme(
+              headlineLarge: TextStyle(
+                  fontFamily: 'dana',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white),
+              headlineMedium: TextStyle(
+                  fontFamily: 'dana',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
+                  color: Color.fromARGB(200, 255, 255, 255)),
+              headlineSmall: TextStyle(
+                  fontFamily: 'dana',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w300,
+                  color: SolidColors.seeMore),
+              bodyMedium: TextStyle(
+                  fontFamily: 'dana',
+                  fontSize: 13,
+                  fontWeight: FontWeight.w300),
+              bodyLarge: TextStyle(
+                  fontFamily: 'dana',
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: SolidColors.signUpText)),
+          elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
+            backgroundColor: MaterialStateColor.resolveWith((states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.yellow;
+              }
+              return SolidColors.colorPrimary;
+            }),
+          )),
+          inputDecorationTheme: InputDecorationTheme(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(width: 2)),
+              filled: true,
+              fillColor: Colors.white)),
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );

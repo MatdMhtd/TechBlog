@@ -14,4 +14,8 @@ class MyStrings {
    ثبت نام کنید""";
 
   static const String btnSignUp = "بزن بریم";
+  static const String enterEmail = "لطفا ایمیلت را وارد کن";
+  static const String hintEmail = "sample@gmail.com";
+  static const String activateCode = "کد فعال سازی را وارد کن";
+  static const String hintPassWord = "******";
 }
