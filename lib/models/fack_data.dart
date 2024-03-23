@@ -19,6 +19,10 @@ List<Tags> listTag = [
   Tags("سی پلاس پلاس"),
 ];
 
+List<Tags> myCategory = [
+  //Tags("جاوا"),
+];
+
 class BlogModel {
   int id;
   String writer;

@@ -15,6 +15,7 @@ class SolidColors {
   static const Color seeMore = Color.fromARGB(255, 40, 107, 184);
   static const Color dividerColor = Color.fromARGB(255, 112, 112, 112);
   static const Color signUpText = Color.fromARGB(255, 107, 107, 107);
+  static const Color chosenMyCategory = Color.fromARGB(173, 224, 212, 212);
 }
 
 class GradiantColors {

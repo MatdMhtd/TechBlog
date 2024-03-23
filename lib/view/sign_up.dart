@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/my_strings.dart';
+import 'package:tech_app/view/my_category.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key, required this.textTheme});
@@ -128,7 +129,12 @@ class _SignUpScreen extends State<SignUpScreen> {
                         ),
                       ),
                       ElevatedButton(
-                          onPressed: () {}, child: const Text("ادامه"))
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => const MyCategory()));
+                          },
+                          child: const Text("ادامه"))
                     ]),
               ),
             ),

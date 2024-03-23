@@ -18,4 +18,10 @@ class MyStrings {
   static const String hintEmail = "sample@gmail.com";
   static const String activateCode = "کد فعال سازی را وارد کن";
   static const String hintPassWord = "******";
+  static const String congratConfirmEmail =
+      """تبریک میگم ، ایمیل با موفقیت تایید شد
+لطفا اطلاعات ثبت نام رو کامل کن""";
+
+  static const String chooseCategory =
+      "دسته بندی هایی که دوست داری رو انتخاب کن";
 }

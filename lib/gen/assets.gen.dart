@@ -29,6 +29,10 @@ class $LibAssetsIconsGen {
   AssetGenImage get bluePen =>
       const AssetGenImage('lib/assets/icons/bluePen.png');
 
+  /// File path: lib/assets/icons/downArrow.png
+  AssetGenImage get downArrow =>
+      const AssetGenImage('lib/assets/icons/downArrow.png');
+
   /// File path: lib/assets/icons/editedProfile.png
   AssetGenImage get editedProfile =>
       const AssetGenImage('lib/assets/icons/editedProfile.png');
@@ -52,8 +56,16 @@ class $LibAssetsIconsGen {
   AssetGenImage get wIcon => const AssetGenImage('lib/assets/icons/wIcon.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [bluePen, editedProfile, homeIcon, podCast, sharp, userIcon, wIcon];
+  List<AssetGenImage> get values => [
+        bluePen,
+        downArrow,
+        editedProfile,
+        homeIcon,
+        podCast,
+        sharp,
+        userIcon,
+        wIcon
+      ];
 }
 
 class $LibAssetsImagesGen {
