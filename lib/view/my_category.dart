@@ -78,7 +78,9 @@ class _MyCategoryState extends State<MyCategory> {
                       return InkWell(
                         onTap: () {
                           setState(() {
-                            myCategory.add(Tags(listTag[index].title));
+                            if (!myCategory.contains(listTag[index])) {
+                              myCategory.add(listTag[index]);
+                            }
                           });
                         },
                         child: TagsComp(

@@ -12,6 +12,8 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
+final GlobalKey<ScaffoldState> _key = GlobalKey();
+
 class _MainScreenState extends State<MainScreen> {
   var indexPage = 0;
   @override
@@ -27,13 +29,74 @@ class _MainScreenState extends State<MainScreen> {
 
     return SafeArea(
       child: Scaffold(
+        key: _key,
+        drawer: Drawer(
+            backgroundColor: SolidColors.scafoldBg,
+            child: Padding(
+              padding: EdgeInsets.only(left: bodMargin, right: bodMargin),
+              child: ListView(
+                children: [
+                  DrawerHeader(
+                    child: Image.asset(
+                      Assets.lib.assets.images.logo.path,
+                      scale: 2.5,
+                    ),
+                  ),
+                  ListTile(
+                    title: const Text(
+                      "پروفایل کاربری",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    color: SolidColors.dividerColor,
+                  ),
+                  ListTile(
+                    title: const Text(
+                      "درباره تِک‌ بِلاگ",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    color: SolidColors.dividerColor,
+                  ),
+                  ListTile(
+                    title: const Text(
+                      "اشتراک گذاری تِک بِلاگ",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    color: SolidColors.dividerColor,
+                  ),
+                  ListTile(
+                    title: const Text(
+                      "تِک‌ بِلاگ در گیت هاب",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    color: SolidColors.dividerColor,
+                  ),
+                ],
+              ),
+            )),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: SolidColors.scafoldBg,
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Icon(Icons.menu, color: Colors.black),
+              InkWell(
+                  onTap: () {
+                    _key.currentState!.openDrawer();
+                  },
+                  child: const Icon(Icons.menu, color: Colors.black)),
               Image(
                   height: size.height / 13.63,
                   image:
