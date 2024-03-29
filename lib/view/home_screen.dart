@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tech_app/component/my_colors.dart';
+import 'package:tech_app/component/my_strings.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/models/fack_data.dart';
-import 'package:tech_app/my_colors.dart';
-import 'package:tech_app/my_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({

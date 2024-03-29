@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_app/my_colors.dart';
+import 'package:tech_app/component/my_colors.dart';
 
 class TextDivider extends StatelessWidget {
   const TextDivider({

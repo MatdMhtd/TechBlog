@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tech_app/my_colors.dart';
+import 'package:tech_app/component/my_colors.dart';
 import 'package:tech_app/view/splash_screen.dart';
 
 void main() {

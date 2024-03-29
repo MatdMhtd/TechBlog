@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tech_app/component/my_colors.dart';
 import 'package:tech_app/gen/assets.gen.dart';
-import 'package:tech_app/my_colors.dart';
 import 'package:tech_app/view/home_screen.dart';
 import 'package:tech_app/view/profile_screen.dart';
 import 'package:tech_app/view/sign_up.dart';

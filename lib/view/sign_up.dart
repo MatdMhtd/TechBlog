@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tech_app/component/my_strings.dart';
 import 'package:tech_app/gen/assets.gen.dart';
-import 'package:tech_app/my_strings.dart';
 import 'package:tech_app/view/my_category.dart';
 
 class SignUpScreen extends StatefulWidget {
