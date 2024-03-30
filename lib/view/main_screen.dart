@@ -80,7 +80,8 @@ class _MainScreenState extends State<MainScreen> {
                       style: TextStyle(color: Colors.black),
                     ),
                     onTap: () {
-                      MyComponent.myLauncher("https://codeyad.com/");
+                      MyComponent.myLauncher(
+                          "https://github.com/MatdMhtd/TechBlog");
                     },
                   ),
                   const Divider(
