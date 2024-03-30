@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tech_app/component/my_colors.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/view/home_screen.dart';
@@ -15,7 +16,7 @@ class MainScreen extends StatefulWidget {
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 class _MainScreenState extends State<MainScreen> {
-  var indexPage = 0;
+  RxInt indexPage = 1.obs;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -110,16 +111,16 @@ class _MainScreenState extends State<MainScreen> {
         ),
         body: Stack(children: [
           //HomeScreen(size: size, themText: themText, bodMargin: bodMargin),
-          Center(child: techMainScreen[indexPage]),
+          Obx(() {
+            return Center(child: techMainScreen[indexPage.value]);
+          }),
 
           //bottomNavigationBar
           BottomNavigationBar(
               bodMargin: bodMargin,
               size: size,
               changeScreen: (int value) {
-                setState(() {
-                  indexPage = value;
-                });
+                indexPage.value = value;
               }),
         ]),
       ),
