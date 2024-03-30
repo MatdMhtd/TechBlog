@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_app/component/my_colors.dart';
+import 'package:tech_app/component/my_component.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/view/home_screen.dart';
 import 'package:tech_app/view/profile_screen.dart';
@@ -78,7 +79,9 @@ class _MainScreenState extends State<MainScreen> {
                       "تِک‌ بِلاگ در گیت هاب",
                       style: TextStyle(color: Colors.black),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      MyComponent.myLauncher("https://codeyad.com/");
+                    },
                   ),
                   const Divider(
                     color: SolidColors.dividerColor,
