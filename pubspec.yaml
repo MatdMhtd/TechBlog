@@ -43,6 +43,7 @@ dependencies:
   validators: ^3.0.0
   get: ^4.6.6
   url_launcher: ^6.2.5
+  dio: ^5.4.2+1
 
 dev_dependencies:
   flutter_test:
