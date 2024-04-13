@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class DioService {
   Future<dynamic> getMethod(String url) async {
-    var dio = Dio();
+    Dio dio = Dio();
     dio.options.headers['content-Type'] = 'application/json';
     return await dio
         .get(url,

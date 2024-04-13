@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tech_app/component/my_colors.dart';
 import 'package:tech_app/component/my_strings.dart';
+import 'package:tech_app/controller/home_screen_controller.dart';
 import 'package:tech_app/gen/assets.gen.dart';
 import 'package:tech_app/models/fack_data.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
+class HomeScreen extends StatelessWidget {
+  HomeScreen({
     super.key,
     required this.size,
     required this.themText,
@@ -16,11 +18,8 @@ class HomeScreen extends StatefulWidget {
   final TextTheme themText;
   final double bodMargin;
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
 
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,8 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Stack(
               children: [
                 Container(
-                  height: widget.size.height / 4.205,
-                  width: widget.size.width / 1.19,
+                  height: size.height / 4.205,
+                  width: size.width / 1.19,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     image: DecorationImage(
@@ -62,17 +61,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Text(
                               "ملیکا عزیزی یک روز پیش",
-                              style: widget.themText.headlineMedium,
+                              style: themText.headlineMedium,
                             ),
                             Text(
                               "Likes 256",
-                              style: widget.themText.headlineMedium,
+                              style: themText.headlineMedium,
                             )
                           ],
                         ),
                         Text(
                           "دوازده قدم برنامه نویسی یک دوره ی...س",
-                          style: widget.themText.headlineLarge,
+                          style: themText.headlineLarge,
                         )
                       ],
                     ))
@@ -84,14 +83,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //list tag
             SizedBox(
-              height: widget.size.height / 12,
+              height: size.height / 12,
               child: ListView.builder(
                 itemCount: listTag.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.fromLTRB(
-                        8, 8, (index == 0 ? widget.bodMargin : 16), 8),
+                        8, 8, (index == 0 ? bodMargin : 16), 8),
                     child: Container(
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
@@ -110,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     AssetImage(
                                         Assets.lib.assets.icons.sharp.path),
                                     color: Colors.white,
-                                    size: widget.size.height / 41),
+                                    size: size.height / 41),
                               ),
                               Padding(
                                 padding:
@@ -131,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             //blog
             Padding(
-              padding: EdgeInsets.only(right: widget.bodMargin),
+              padding: EdgeInsets.only(right: bodMargin),
               child: Row(
                 children: [
                   ImageIcon(
@@ -143,72 +142,77 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Text(
                     MyStrings.viewHotestBlog,
-                    style: widget.themText.headlineSmall,
+                    style: themText.headlineSmall,
                   )
                 ],
               ),
             ),
             SizedBox(
-              height: widget.size.height / 3.5,
-              child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        8, 8, index == 0 ? widget.bodMargin : 8, 8),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: widget.size.height / 5.3,
-                          width: widget.size.width / 2.4,
-                          child: Stack(children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(14)),
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                          listBlogModel[index].imageUrl),
-                                      fit: BoxFit.cover)),
-                              foregroundDecoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(14)),
-                                  gradient: LinearGradient(
-                                      colors: GradiantColors.blogColor,
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter)),
-                            ),
-                            Positioned(
-                              bottom: 8,
-                              right: 0,
-                              left: 0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    listBlogModel[index].writer,
-                                    style: widget.themText.headlineMedium,
-                                  ),
-                                  Text(
-                                    "Likes: ${listBlogModel[index].likes}",
-                                    style: widget.themText.headlineMedium,
-                                  )
-                                ],
+              height: size.height / 3.5,
+              child: Obx(
+                () => ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          8, 8, index == 0 ? bodMargin : 8, 8),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: size.height / 5.3,
+                            width: size.width / 2.4,
+                            child: Stack(children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(14)),
+                                    image: DecorationImage(
+                                        image: NetworkImage(homeScreenController
+                                            .articleModel[index].image!),
+                                        fit: BoxFit.cover)),
+                                foregroundDecoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(14)),
+                                    gradient: LinearGradient(
+                                        colors: GradiantColors.blogColor,
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter)),
                               ),
-                            ),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: widget.size.width / 2.4,
-                          child: Text(listBlogModel[index].content,
-                              maxLines: 2, overflow: TextOverflow.ellipsis),
-                        )
-                      ],
-                    ),
-                  );
-                },
-                itemCount: listBlogModel.length,
-                scrollDirection: Axis.horizontal,
+                              Positioned(
+                                bottom: 8,
+                                right: 0,
+                                left: 0,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      homeScreenController
+                                          .articleModel[index].author!,
+                                      style: themText.headlineMedium,
+                                    ),
+                                    Text(
+                                      "Views: ${homeScreenController.articleModel[index].view!}",
+                                      style: themText.headlineMedium,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ]),
+                          ),
+                          SizedBox(
+                            width: size.width / 2.4,
+                            child: Text(
+                                homeScreenController.articleModel[index].title!,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: homeScreenController.articleModel.length,
+                  scrollDirection: Axis.horizontal,
+                ),
               ),
             ),
 
@@ -217,58 +221,61 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20,
             ),
             SizedBox(
-              height: widget.size.height / 3,
+              height: size.height / 3,
               child: Column(children: [
                 Padding(
-                  padding: EdgeInsets.only(right: widget.bodMargin),
+                  padding: EdgeInsets.only(right: bodMargin),
                   child: Row(
                     children: [
                       ImageIcon(
                           AssetImage(Assets.lib.assets.icons.podCast.path)),
                       Text(
                         MyStrings.viewHotestPodcast,
-                        style: widget.themText.headlineSmall,
+                        style: themText.headlineSmall,
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: widget.size.height / 4.5,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: listBlogModel.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                            right: index == 0 ? widget.bodMargin : 10, top: 10),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: widget.size.height / 8,
-                              width: widget.size.width / 2.4,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        listBlogModel[index].imageUrl),
-                                    fit: BoxFit.cover),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(14)),
+                  height: size.height / 4.5,
+                  child: Obx(
+                    () => ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: homeScreenController.podCastModel.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                              right: index == 0 ? bodMargin : 10, top: 10),
+                          child: Column(
+                            children: [
+                              Container(
+                                height: size.height / 8,
+                                width: size.width / 2.4,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(homeScreenController
+                                          .podCastModel[index].poster!),
+                                      fit: BoxFit.cover),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(14)),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: widget.size.height / 30,
-                              child: Text(
-                                listBlogModel[index].writer,
-                                style: widget.themText.bodyMedium,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
+                              SizedBox(
+                                height: size.height / 30,
+                                child: Text(
+                                  homeScreenController
+                                      .podCastModel[index].author!,
+                                  style: themText.bodyMedium,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ]),

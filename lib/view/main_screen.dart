@@ -14,10 +14,9 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-final GlobalKey<ScaffoldState> _key = GlobalKey();
-
 class _MainScreenState extends State<MainScreen> {
-  RxInt indexPage = 1.obs;
+  RxInt indexPage = 0.obs;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -131,6 +130,8 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 class BottomNavigationBar extends StatefulWidget {
   const BottomNavigationBar(
